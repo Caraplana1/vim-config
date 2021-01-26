@@ -3,3 +3,4 @@ coc-java
 coc-marketplace
 coc-pyright
 coc-clangd
+coc-terminal

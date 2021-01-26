@@ -119,7 +119,7 @@ au BufRead *.pdf sil exe "!xdg-open " . shellescape(expand("%:p")) | bd | let &f
 let mapleader=","
 
 map <tab> :NERDTree <CR>
-map <F5> :term <CR>
+map <F5> <Plug>(coc-terminal-toggle)
 map <F9> :q <CR>
 map <F10> :wq <CR>
 map <C-y> "+y
