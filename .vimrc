@@ -1,13 +1,3 @@
-" Set the number left colum
-:set nu rnu 
-" Active the mouse
-:set mouse=a
-" Set the encoding.
-:set encoding=UTF-8
-
-" Open a pdf with the pdf aplication
-au BufRead *.pdf sil exe "!xdg-open " . shellescape(expand("%:p")) | bd | let &ft=&ft | redraw!
-
 "=========================
 "| Vundle Plugin Manager |
 "=========================
@@ -39,7 +29,13 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'sheerun/vim-polyglot'
 
 " Vertical line identation.
-Plugin 'Yggdroot/indentLine'
+Plugin 'thaerkh/vim-indentguides'
+
+" Workspaces sessions
+Plugin 'thaerkh/vim-workspace'
+
+" VimDevIcon
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()
 filetype plugin indent on
@@ -81,10 +77,23 @@ colorscheme sonokai
 "| Settings |
 "============
 
+" AutoCompletition settings
 set complete+=kspell
 set completeopt=menuone,longest
 set shortmess+=c
 
+" Airline tab config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = "\uE0BC"
+
+" Airline config
+let g:airline_left_sep = "\uE0B0"
+let g:airline_right_sep = "\uE0B2"
+
+" Workspace config
+let g:workspace_session_directory = $HOME . '/.vim/sessions/Session.vim'
+
+" Tab config
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -93,9 +102,21 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
+" Set the number left colum
+:set nu rnu 
+" Active the mouse
+:set mouse=a
+" Set the encoding.
+:set encoding=UTF-8
+
+" Open a pdf with the pdf aplication
+au BufRead *.pdf sil exe "!xdg-open " . shellescape(expand("%:p")) | bd | let &ft=&ft | redraw!
+
+
 "============
 "| Map keys |
 "============
+let mapleader=","
 
 map <tab> :NERDTree <CR>
 map <F5> :term <CR>
@@ -104,7 +125,7 @@ map <F10> :wq <CR>
 map <C-y> "+y
 map <C-p> "+p
 map <C-a> ggVG
-
+map <leader>s :ToggleWorkspace <CR>
 
 "======================
 "| Coc Configuration. |
