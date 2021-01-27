@@ -4,3 +4,4 @@ coc-marketplace
 coc-pyright
 coc-clangd
 coc-terminal
+coc-git
