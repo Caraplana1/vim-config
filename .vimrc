@@ -37,6 +37,12 @@ Plugin 'thaerkh/vim-workspace'
 " VimDevIcon
 Plugin 'ryanoasis/vim-devicons'
 
+" Nerd Commenter
+Plugin 'preservim/nerdcommenter'
+
+" Theme sonokai
+Plugin 'sainnhe/sonokai'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -45,14 +51,9 @@ filetype plugin indent on
 "======================
 
 call plug#begin('~/.vim/plugged')
-" Automatically show Vim's complete menu while typing.
-" Plug 'vim-scripts/AutoComplPop'
 
 " Vim coc Extension suported. 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Theme sonokai
-Plug 'sainnhe/sonokai'
 
 call plug#end()
 
@@ -65,6 +66,7 @@ call plug#end()
           set termguicolors
         endif
 " The configuration options should be placed before `colorscheme sonokai`.
+" Available themes: 'default', 'atlantis', 'abdromeda', 'shusia', 'maia'
 let g:sonokai_style = 'default'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 0
@@ -85,10 +87,16 @@ set shortmess+=c
 " Airline tab config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = "\uE0BC"
+let g:airline#extensions#tabline#right_sep = "\uE0BE"
 
 " Airline config
 let g:airline_left_sep = "\uE0B0"
 let g:airline_right_sep = "\uE0B2"
+
+" Nerd Commenter config
+filetype plugin on
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
 
 " Workspace config
 let g:workspace_session_directory = $HOME . '/.vim/sessions/Session.vim'
@@ -120,8 +128,11 @@ let mapleader=","
 
 map <tab> :NERDTree <CR>
 map <F5> <Plug>(coc-terminal-toggle)
-map <F9> :q <CR>
-map <F10> :wq <CR>
+map <F6> :CocCommand terminal.Destroy <CR>
+map! <C-s> <esc> :w <CR> i
+map <C-s> :w <CR>
+map <S-z> :q <CR>
+map <F9> :wq <CR>
 map <C-y> "+y
 map <C-p> "+p
 map <C-a> ggVG
@@ -258,7 +269,6 @@ endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
@@ -292,4 +302,3 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
