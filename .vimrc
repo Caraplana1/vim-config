@@ -131,7 +131,7 @@ map <F5> <Plug>(coc-terminal-toggle)
 map <F6> :CocCommand terminal.Destroy <CR>
 map! <C-s> <esc> :w <CR> i
 map <C-s> :w <CR>
-map <S-z> :q <CR>
+map <S-q> :q <CR>
 map <F9> :wq <CR>
 map <C-y> "+y
 map <C-p> "+p
