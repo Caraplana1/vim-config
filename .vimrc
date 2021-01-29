@@ -136,6 +136,7 @@ map <C-p> "+p
 map <C-a> ggVG
 map <leader>s :ToggleWorkspace <CR>
 map <leader>f :Files<CR>
+map <leader>r :Rg<CR>
 
 "======================
 "| Coc Configuration. |
