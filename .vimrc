@@ -13,8 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Vim air-line.
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Set the air line theme.
-let g:airline_theme = 'luna'
 
 " Nerd tree.
 Plugin 'scrooloose/nerdtree'
@@ -43,19 +41,15 @@ Plugin 'preservim/nerdcommenter'
 " Theme sonokai
 Plugin 'sainnhe/sonokai'
 
+"Conquer of completion
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
+" FZF
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+
 call vundle#end()
 filetype plugin indent on
-
-"======================
-"| Plug Pugin Manager |
-"======================
-
-call plug#begin('~/.vim/plugged')
-
-" Vim coc Extension suported. 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()
 
 "=======================
 "| Sonokai theme config|
@@ -110,8 +104,12 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
+" VimDevIcon config
+let g:webdevicons_enable_nerdtree=0
+let g:webdevicons_conceal_nerdtree_brackets=0
+
 " Set the number left colum
-:set nu rnu 
+:set nu rnu
 " Active the mouse
 :set mouse=a
 " Set the encoding.
@@ -132,11 +130,12 @@ map <F6> :CocCommand terminal.Destroy <CR>
 map! <C-s> <esc> :w <CR> i
 map <C-s> :w <CR>
 map <S-q> :q <CR>
-map <F9> :wq <CR>
+map <F9> :x <CR>
 map <C-y> "+y
 map <C-p> "+p
 map <C-a> ggVG
 map <leader>s :ToggleWorkspace <CR>
+map <leader>f :Files<CR>
 
 "======================
 "| Coc Configuration. |
