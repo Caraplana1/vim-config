@@ -48,6 +48,9 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 
+" jedi-vim
+Plugin 'davidhalter/jedi-vim'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -69,14 +72,9 @@ let g:lightline = {'colorscheme' : 'sonokai'}
 
 colorscheme sonokai
 
-"============
-"| Settings |
-"============
-
-" AutoCompletition settings
-set complete+=kspell
-set completeopt=menuone,longest
-set shortmess+=c
+"====================
+"| Plugins Settings |
+"====================
 
 " Airline tab config
 let g:airline#extensions#tabline#enabled = 1
@@ -95,6 +93,18 @@ let g:NERDSpaceDelims = 1
 " Workspace config
 let g:workspace_session_directory = $HOME . '/.vim/sessions/Session.vim'
 
+" VimDevIcon config
+let g:webdevicons_enable_nerdtree=0
+let g:webdevicons_conceal_nerdtree_brackets=1
+
+" Jedi Settings
+let g:jedi#popup_on_dot = 0
+
+
+"============
+"| Settings |
+"============
+
 " Tab config
 filetype plugin indent on
 " show existing tab with 4 spaces width
@@ -103,10 +113,6 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
-
-" VimDevIcon config
-let g:webdevicons_enable_nerdtree=0
-let g:webdevicons_conceal_nerdtree_brackets=0
 
 " Set the number left colum
 :set nu rnu
@@ -118,25 +124,31 @@ let g:webdevicons_conceal_nerdtree_brackets=0
 " Open a pdf with the pdf aplication
 au BufRead *.pdf sil exe "!xdg-open " . shellescape(expand("%:p")) | bd | let &ft=&ft | redraw!
 
+" AutoCompletition settings
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
+
 
 "============
 "| Map keys |
 "============
 let mapleader=","
 
-map <tab> :NERDTree <CR>
-map <F5> <Plug>(coc-terminal-toggle)
-map <F6> :CocCommand terminal.Destroy <CR>
+map <tab> :NERDTreeToggle<CR>
+map <leader>t <Plug>(coc-terminal-toggle)
+map <leader>y :CocCommand terminal.Destroy <CR>
 map! <C-s> <esc> :w <CR> i
 map <C-s> :w <CR>
 map <S-q> :q <CR>
 map <F9> :x <CR>
 map <C-y> "+y
-map <C-p> "+p
+map <C-p> o<esc>"+p
 map <C-a> ggVG
 map <leader>s :ToggleWorkspace <CR>
-map <leader>f :Files<CR>
-map <leader>r :Rg<CR>
+map <S-f> :Files<CR>
+map <S-r> :Rg<CR>
+map! <C-c> <esc>
 
 "======================
 "| Coc Configuration. |
