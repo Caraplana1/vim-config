@@ -48,8 +48,8 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 
-" jedi-vim
-Plugin 'davidhalter/jedi-vim'
+" Surround
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 filetype plugin indent on
@@ -70,7 +70,7 @@ let g:sonokai_disable_italic_comment = 0
 let g:airline_theme = 'sonokai'
 let g:lightline = {'colorscheme' : 'sonokai'}
 
-colorscheme sonokai
+colorscheme sonokai 
 
 "====================
 "| Plugins Settings |
@@ -96,10 +96,6 @@ let g:workspace_session_directory = $HOME . '/.vim/sessions/Session.vim'
 " VimDevIcon config
 let g:webdevicons_enable_nerdtree=0
 let g:webdevicons_conceal_nerdtree_brackets=1
-
-" Jedi Settings
-let g:jedi#popup_on_dot = 0
-
 
 "============
 "| Settings |
@@ -146,9 +142,10 @@ map <C-y> "+y
 map <C-p> o<esc>"+p
 map <C-a> ggVG
 map <leader>s :ToggleWorkspace <CR>
-map <S-f> :Files<CR>
+map <S-tab> :Files<CR>
 map <S-r> :Rg<CR>
 map! <C-c> <esc>
+map! <C-z> <esc>ua
 
 "======================
 "| Coc Configuration. |
