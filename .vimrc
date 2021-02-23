@@ -146,6 +146,10 @@ map <S-tab> :Files<CR>
 map <S-r> :Rg<CR>
 map! <C-c> <esc>
 map! <C-z> <esc>ua
+map + <C-w>+
+map - <C-w>-
+map <leader>> <C-w>>
+map <leader>< <C-w><
 
 "======================
 "| Coc Configuration. |

@@ -1,7 +1,9 @@
-coc-pairs
-coc-java
-coc-marketplace
-coc-pyright
-coc-clangd
 coc-terminal
+coc-pairs
+coc-marketplace
 coc-git
+coc-tsserver
+coc-pyright
+coc-json
+coc-java
+coc-clangd
